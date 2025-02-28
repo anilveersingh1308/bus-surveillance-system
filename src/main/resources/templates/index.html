@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DTC Bus Surveillance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>DTC Bus Surveillance System</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Bus ID</th>
+                <th>Bus Number</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Speed</th>
+                <th>Passenger Count</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="bus : ${buses}">
+                <td th:text="${bus.id}"></td>
+                <td th:text="${bus.busNumber}"></td>
+                <td th:text="${bus.currentLatitude}"></td>
+                <td th:text="${bus.currentLongitude}"></td>
+                <td th:text="${bus.speed}"></td>
+                <td th:text="${bus.passengerCount}"></td>
+                <td th:text="${bus.lastUpdated}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
